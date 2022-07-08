@@ -8,7 +8,7 @@
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^13.0.0",
+    "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.2.1",
     "concurrently": "^7.2.2",
     "express": "^4.18.1",
@@ -20,7 +20,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-relay": "^14.0.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "relay-runtime": "^14.0.0",
     "web-vitals": "^2.1.0"
   },
@@ -74,7 +74,6 @@
     "eslint-plugin-sonarjs": "0.13.0",
     "eslint-plugin-testing-library": "5.5.1",
     "eslint-plugin-unicorn": "43.0.0",
-    "relay-compiler": "^14.0.0",
     "typescript": "4.7.4"
   },
   "resolutions": {
