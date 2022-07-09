@@ -30,7 +30,8 @@
     "startserver": "node server.js",
     "client": "react-scripts start --prefix src",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "relay": "relay-compiler --src ./src --schema ./schema.graphql"
+    "relay": "relay-compiler --src ./src --schema ./schema.graphql",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
