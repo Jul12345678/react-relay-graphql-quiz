@@ -8,7 +8,7 @@ const schema = buildSchema(`
   }
 `);
 
-const root = { hello: () => 'Hello world!' };
+const root = { hello: () => 'Hello' };
 
 const app = express();
 app.use(
