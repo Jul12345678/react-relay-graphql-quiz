@@ -5,26 +5,17 @@ const { buildSchema } = require('graphql');
 const schema = buildSchema(`
   type Query {
     getPost: Post
-    viewer: Viewer
-
   }
 
   type Post {
+    id: ID!
     description: String!
     imageUrl: String!
-    id: ID
     edges: [Post]
     node: Post
   }
 
-  type Viewer {
-    edges: [Post]
-    allPosts: [Post]
-    id: ID
-    allPosts(last: Int, orderBy: String): [Post]
-    createdAT: String
-    last: Int
-  }
+
 
 `);
 
@@ -32,15 +23,7 @@ const root = {
   getPost: () => ({
     description: 'Hello World',
     imageUrl: 'https://source.unsplash.com/random',
-  }),
-  getViewer: () => ({
-    createdAT: new Date(),
-    allPosts: () => [
-      {
-        last: 5,
-        orderBy: 'createdAt_DESC',
-      },
-    ],
+    id: '1',
   }),
 };
 
