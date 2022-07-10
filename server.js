@@ -1,29 +1,50 @@
 const express = require('express');
 const { graphqlHTTP } = require('express-graphql');
 const { buildSchema } = require('graphql');
+const { userInfo } = require('os');
 
 const schema = buildSchema(`
   type Query {
-    getPost: Post
+    quiz: Quiz
+    viewer: Viewer
   }
 
-  type Post {
-    id: ID!
-    description: String!
-    imageUrl: String!
-    edges: [Post]
-    node: Post
+  type Quiz {
+    id: ID
+    question: String
+    answer: Boolean
   }
 
+  type Viewer {
+id: ID
+    allPosts: [Quiz]
+    userId: String
+  }
 
 
 `);
 
 const root = {
-  getPost: () => ({
-    description: 'Hello World',
-    imageUrl: 'https://source.unsplash.com/random',
+  getQuestion: () => ({
     id: '1',
+    question: 'What is the best programming language?',
+    answer: true,
+  }),
+  viewer: () => ({
+    id: '1',
+    userId: '1',
+    allPosts: [
+      {
+        id: '1',
+        question: 'What is the best programming language?',
+        answer: true,
+      },
+      {
+        id: '2',
+        question: 'What is the best programming language?',
+        answer: true,
+      },
+    ],
   }),
 };
 

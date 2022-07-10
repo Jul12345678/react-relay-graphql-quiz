@@ -1,6 +1,7 @@
 import React from 'react';
 import { createFragmentContainer, graphql } from 'react-relay';
 import Post from './Post';
+import Quiz from './Quiz';
 
 class ListPage extends React.Component {
   render() {
@@ -8,7 +9,7 @@ class ListPage extends React.Component {
       <div className="list-page">
         <div className="list-page-header" style={{ maxWidth: 400 }}>
           {this.props.viewer.allPosts.edges.map(({ node }) => (
-            <Post key={node.id} post={node} />
+            <Quiz key={node.id} post={node} />
           ))}
         </div>
       </div>
@@ -20,14 +21,8 @@ export default createFragmentContainer(
   ListPage,
   graphql`
     fragment ListPage_viewer on Viewer {
-      allPosts(last: 5, orderBy: createdAt_DESC)
-        @connection(key: "ListPage_allPosts", filters: []) {
-        edges {
-          node {
-            ...Post_post
-          }
-        }
-      }
+      id
+      userId
     }
   `,
 );
